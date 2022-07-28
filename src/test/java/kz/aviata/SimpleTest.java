@@ -1,18 +1,25 @@
 package kz.aviata;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+// import com.codeborne.selenide.drivercommands.WebDriverWrapper;
+import org.junit.jupiter.api.*;
 
 public class SimpleTest {
 
-    @Test
-    void assertTest() {
-        Assertions.assertTrue(true);
+    @BeforeEach
+    void openMainPage() {
+        Selenide.open("https://railways-staging-monolith.dev.cloud.aviata.team/railways/");
+    }
+
+    @AfterEach
+    void closePage(){
+        WebDriverRunner.closeWindow();
     }
 
     @Test
-    void assertTest2() {
-        Assertions.assertTrue(true);
+    void assertTest() {
+
     }
 }
 
